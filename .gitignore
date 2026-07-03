@@ -1,25 +1,8 @@
 # Environment
 .env
 
-# WordPress uploads (conteúdo gerado pelo usuário)
-wp-content/uploads/*
-!wp-content/uploads/.gitkeep
-
-# Plugins e temas de terceiros (instalados via painel)
-wp-content/plugins/*
-!wp-content/plugins/.gitkeep
-!wp-content/plugins/starter-plugin/
-
-wp-content/themes/*
-!wp-content/themes/starter-theme/
-
 # Node
 node_modules/
-package-lock.json
-
-# CSS compilado (gerado pelo Sass)
-wp-content/themes/starter-theme/assets/css/main.css
-wp-content/themes/starter-theme/assets/css/main.css.map
 
 # OS
 .DS_Store
@@ -35,3 +18,38 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# ---------------------------------------------------------------------------
+# wp-content — versionar só o customizado (tema, blocos, starter-plugin)
+# ---------------------------------------------------------------------------
+
+# Uploads (conteúdo gerado no admin)
+wp-content/uploads/*
+!wp-content/uploads/.gitkeep
+
+# Plugins de terceiros / padrão do WordPress
+wp-content/plugins/*
+!wp-content/plugins/.gitkeep
+!wp-content/plugins/course/
+!wp-content/plugins/course/**
+!wp-content/plugins/starter-plugin/
+!wp-content/plugins/starter-plugin/**
+
+# Temas de terceiros / padrão do WordPress
+wp-content/themes/*
+!wp-content/themes/starter-theme/
+!wp-content/themes/starter-theme/**
+
+# Pastas obsoletas ou geradas localmente
+wp-content/plugins/curvy/
+
+# ---------------------------------------------------------------------------
+# Artefatos gerados (compilar com npm run sass / npm run build)
+# ---------------------------------------------------------------------------
+
+# Tema — CSS compilado pelo Sass
+wp-content/themes/starter-theme/assets/css/main.css
+wp-content/themes/starter-theme/assets/css/main.css.map
+
+# Blocos — build gerado pelo wp-scripts
+wp-content/plugins/course/build/
