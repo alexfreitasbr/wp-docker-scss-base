@@ -1,0 +1,37 @@
+# Environment
+.env
+
+# WordPress uploads (conteúdo gerado pelo usuário)
+wp-content/uploads/*
+!wp-content/uploads/.gitkeep
+
+# Plugins e temas de terceiros (instalados via painel)
+wp-content/plugins/*
+!wp-content/plugins/.gitkeep
+!wp-content/plugins/starter-plugin/
+
+wp-content/themes/*
+!wp-content/themes/starter-theme/
+
+# Node
+node_modules/
+package-lock.json
+
+# CSS compilado (gerado pelo Sass)
+wp-content/themes/starter-theme/assets/css/main.css
+wp-content/themes/starter-theme/assets/css/main.css.map
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*

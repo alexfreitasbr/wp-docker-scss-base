@@ -1,0 +1,13 @@
+{
+  "name": "wp-docker-tailwind-base",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "sass": "sass wp-content/themes/starter-theme/assets/scss/main.scss wp-content/themes/starter-theme/assets/css/main.css --style=expanded --source-map",
+    "sass:watch": "sass --watch wp-content/themes/starter-theme/assets/scss/main.scss:wp-content/themes/starter-theme/assets/css/main.css --style=expanded --source-map",
+    "dev": "npm run sass:watch"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}
