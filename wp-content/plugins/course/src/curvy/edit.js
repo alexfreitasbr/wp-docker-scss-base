@@ -73,15 +73,6 @@ export default function Edit({ attributes, setAttributes }) {
 							}
 						/>
 					</PanelRow>
-					<Divider />
-					<PanelRow className="panel-row">
-						<BoxControl
-							className="padding-control"
-							label={ __( 'Padding', metadata.textdomain ) }
-							values={ padding }
-							onChange={ setPadding }
-						/>
-					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
 
