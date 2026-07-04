@@ -4,6 +4,26 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-curvy {
-	border: 1px dotted #f00;
+.wp-block-bockylicious-curvy {
+	border: none;
+}
+
+.panel-body {
+
+	.panel-row {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 5px;
+		width: 100%;
+
+		& > div {
+			width: 100%;
+			div{
+				margin:0;
+			}
+		}
+	}
+
+
 }

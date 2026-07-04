@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/curvy2",
+	"name": "bockylicious/curvy2",
 	"version": "0.1.0",
 	"title": "Curvy2",
-	"category": "widgets",
+	"category": "custom",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "curvy shape block",
 	"example": {},
 	"supports": {
 		"html": false

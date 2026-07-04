@@ -21,5 +21,5 @@
  */
 
 /* eslint-disable no-console */
-console.log( 'Hello World! (from create-block-curvy block)' );
+console.log( 'Hello World! (from bockylicious-curvy block)' );
 /* eslint-enable no-console */

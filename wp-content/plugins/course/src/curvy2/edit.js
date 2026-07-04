@@ -31,8 +31,11 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
+		<>
 		<p { ...useBlockProps() }>
 			{ __( 'Curvy2 – hello from the editor!', 'curvy2' ) }
 		</p>
+		</>
+
 	);
 }

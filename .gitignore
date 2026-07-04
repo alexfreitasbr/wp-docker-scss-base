@@ -40,8 +40,6 @@ wp-content/themes/*
 !wp-content/themes/starter-theme/
 !wp-content/themes/starter-theme/**
 
-# Pastas obsoletas ou geradas localmente
-wp-content/plugins/curvy/
 
 # ---------------------------------------------------------------------------
 # Artefatos gerados (compilar com npm run sass / npm run build)

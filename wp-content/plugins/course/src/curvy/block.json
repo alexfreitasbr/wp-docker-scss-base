@@ -1,17 +1,49 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/curvy",
+	"name": "bockylicious/curvy",
 	"version": "0.1.0",
 	"title": "Curvy",
-	"category": "widgets",
+	"category": "design",
 	"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": true,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true
+		},
+		"spacing": {
+			"padding": true
+		}
 	},
-	"textdomain": "curvy",
+	"attributes": {
+		"style": {
+			"type": "object",
+			"default": {
+				"color": {
+					"background": "#dd0000",
+					"text": "#000",
+					"link": "#0ff"
+				},
+				"spacing": {
+					"padding": {
+						"top": "0px",
+						"right": "0px",
+						"bottom": "0px",
+						"left": "0px"
+					}
+				}
+			}
+		},
+		"showTopCurvy": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"textdomain": "bockylicious",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
