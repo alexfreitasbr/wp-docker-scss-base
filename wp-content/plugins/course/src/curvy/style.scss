@@ -6,5 +6,8 @@
  */
 
 .wp-block-bockylicious-curvy {
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 100% !important;
 }
