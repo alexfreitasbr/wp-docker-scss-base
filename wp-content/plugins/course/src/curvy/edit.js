@@ -123,6 +123,13 @@ export default function Edit({ attributes, setAttributes }) {
 							label={ __( 'Curvy Color', metadata.textdomain ) }
 							value={ attributes.curvyColor}
 							onChange={ ( value ) => setAttributes( { curvyColor: value } ) }
+							colors={ [
+								{ color: '#000000', name: 'Black' },
+								{ color: '#ffffff', name: 'White' },
+								{ color: '#ff0000', name: 'Red' },
+								{ color: '#00ff00', name: 'Green' },
+								{ color: '#0000ff', name: 'Blue' },
+							] }
 						/>
 					</PanelRow>
 				</PanelBody>
