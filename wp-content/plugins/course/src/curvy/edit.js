@@ -11,13 +11,11 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InspectorControls, ColorPalette } from "@wordpress/block-editor";
+import { useBlockProps, InspectorControls, InnerBlocks} from "@wordpress/block-editor";
 import {
 	PanelBody,
 	PanelRow,
 	ToggleControl,
-	HorizontalRule,
-	RangeControl,
 } from "@wordpress/components";
 
 /**
@@ -29,6 +27,8 @@ import {
 import "./editor.scss";
 import metadata from "./block.json";
 import Curvy from "./components/curvy";
+import CurveTopSettings from "./components/topCurveSettings";
+import CurveBottomSettings from "./components/bottomCurveSettings";
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -46,24 +46,36 @@ export default function Edit({ attributes, setAttributes }) {
 				{...blockProps}
 				style={{
 					width: "100%",
-					height: `${attributes.curvyHeight}px`,
 					backgroundColor: attributes.style.color.background,
 				}}
 			>
 				{attributes.showTopCurvy && (
 					<Curvy
-						width={attributes.curvyWidth}
-						height={attributes.curvyHeight}
+						width={attributes.topCurvyWidth}
+						height={attributes.topCurvyHeight}
 						horizontalFlip={attributes.topHorizontalFlip}
 						verticalFlip={attributes.topVerticalFlip}
-						curvyColor={attributes.curvyColor}
+						curvyColor={attributes.topCurvyColor}
+					/>
+				)}
+				<InnerBlocks
+
+				/>
+				{attributes.showBottomCurvy && (
+					<Curvy
+						width={attributes.bottomCurvyWidth}
+						height={attributes.bottomCurvyHeight}
+						horizontalFlip={attributes.bottomHorizontalFlip}
+						verticalFlip={attributes.bottomVerticalFlip}
+						curvyColor={attributes.bottomCurvyColor}
 					/>
 				)}
 			</section>
+			<section>
 			<InspectorControls group="settings" className="curvy-inspector">
 				<PanelBody
 					className="panel-body"
-					title={__("Curvy Settings", metadata.textdomain)}
+					title={__("Top Curvy Settings", metadata.textdomain)}
 					initialOpen={attributes.showTopCurvy}
 				>
 					<PanelRow className="panel-row">
@@ -75,65 +87,26 @@ export default function Edit({ attributes, setAttributes }) {
 							}
 						/>
 					</PanelRow>
-					<HorizontalRule />
-					{attributes.showTopCurvy && (
-						<PanelRow className="panel-row">
-							<RangeControl
-								className="curvy-range-control"
-								label={__("Curvy width", metadata.textdomain)}
-								value={attributes.curvyWidth}
-								onChange={(value) => setAttributes({ curvyWidth: value })}
-								min={100}
-								max={300}
-							/>
-						</PanelRow>
-					)}
-					<PanelRow className="panel-row">
-						<RangeControl
-							className="curvy-range-control"
-							label={__("Curvy Height", metadata.textdomain)}
-							value={attributes.curvyHeight}
-							onChange={(value) => setAttributes({ curvyHeight: value })}
-							min={0}
-							max={200}
-						/>
-					</PanelRow>
+					{attributes.showTopCurvy && (<CurveTopSettings attributes={attributes} setAttributes={setAttributes} />)}
+				</PanelBody>
+				<PanelBody
+					className="panel-body"
+					title={__("BottomCurvy Settings", metadata.textdomain)}
+					initialOpen={attributes.showBottomCurvy}
+				>
 					<PanelRow className="panel-row">
 						<ToggleControl
-							label={ __( 'Horizontal flip', metadata.textdomain ) }
-							checked={ attributes.topHorizontalFlip}
-							onChange={ ( isChecked ) =>
-								setAttributes( { topHorizontalFlip: isChecked } )
+							label={__("Show Bottom Curvy", metadata.textdomain)}
+							checked={attributes.showBottomCurvy}
+							onChange={(isChecked) =>
+								setAttributes({ showBottomCurvy: isChecked })
 							}
 						/>
 					</PanelRow>
-					<HorizontalRule />
-					<PanelRow className="panel-row">
-						<ToggleControl
-							label={ __( 'Vertical flip', metadata.textdomain ) }
-							checked={ attributes.topVerticalFlip}
-							onChange={ ( isChecked ) =>
-								setAttributes( { topVerticalFlip: isChecked } )
-							}
-						/>
-					</PanelRow>
-					<HorizontalRule />
-					<PanelRow className="panel-row">
-						<ColorPalette
-							label={ __( 'Curvy Color', metadata.textdomain ) }
-							value={ attributes.curvyColor}
-							onChange={ ( value ) => setAttributes( { curvyColor: value } ) }
-							colors={ [
-								{ color: '#000000', name: 'Black' },
-								{ color: '#ffffff', name: 'White' },
-								{ color: '#ff0000', name: 'Red' },
-								{ color: '#00ff00', name: 'Green' },
-								{ color: '#0000ff', name: 'Blue' },
-							] }
-						/>
-					</PanelRow>
+					{attributes.showBottomCurvy && (<CurveBottomSettings attributes={attributes} setAttributes={setAttributes} />)}
 				</PanelBody>
 			</InspectorControls>
+			</section>
 		</>
 	);
 }
