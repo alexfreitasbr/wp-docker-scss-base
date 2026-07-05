@@ -45,12 +45,13 @@ export default function Edit({ attributes, setAttributes }) {
 			<section
 				{...blockProps}
 				style={{
-					width: "100%",
-					backgroundColor: attributes.style.color.background,
+					position: "unset",
+    				height: `${attributes.topCurvyHeight + attributes.bottomCurvyHeight}px`,
 				}}
 			>
 				{attributes.showTopCurvy && (
 					<Curvy
+						color={attributes.style.color.background}
 						width={attributes.topCurvyWidth}
 						height={attributes.topCurvyHeight}
 						horizontalFlip={attributes.topHorizontalFlip}
@@ -58,11 +59,11 @@ export default function Edit({ attributes, setAttributes }) {
 						curvyColor={attributes.topCurvyColor}
 					/>
 				)}
-				<InnerBlocks
-
-				/>
+				<InnerBlocks/>
 				{attributes.showBottomCurvy && (
 					<Curvy
+						top={attributes.topCurvyHeight}
+						color={attributes.style.color.background}
 						width={attributes.bottomCurvyWidth}
 						height={attributes.bottomCurvyHeight}
 						horizontalFlip={attributes.bottomHorizontalFlip}
