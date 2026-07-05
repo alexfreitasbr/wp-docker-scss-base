@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
+import { useBlockProps, InspectorControls, ColorPalette } from "@wordpress/block-editor";
 import {
 	PanelBody,
 	PanelRow,
@@ -56,6 +56,7 @@ export default function Edit({ attributes, setAttributes }) {
 						height={attributes.curvyHeight}
 						horizontalFlip={attributes.topHorizontalFlip}
 						verticalFlip={attributes.topVerticalFlip}
+						curvyColor={attributes.curvyColor}
 					/>
 				)}
 			</section>
@@ -114,6 +115,14 @@ export default function Edit({ attributes, setAttributes }) {
 							onChange={ ( isChecked ) =>
 								setAttributes( { topVerticalFlip: isChecked } )
 							}
+						/>
+					</PanelRow>
+					<HorizontalRule />
+					<PanelRow className="panel-row">
+						<ColorPalette
+							label={ __( 'Curvy Color', metadata.textdomain ) }
+							value={ attributes.curvyColor}
+							onChange={ ( value ) => setAttributes( { curvyColor: value } ) }
 						/>
 					</PanelRow>
 				</PanelBody>
