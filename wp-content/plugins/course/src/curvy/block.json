@@ -9,14 +9,17 @@
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {
-		"html": true,
+		"html": false,
 		"color": {
 			"background": true,
 			"text": true,
-			"link": true
+			"link": false
 		},
 		"spacing": {
-			"padding": true
+			"padding": true,
+			"__experimentalDefaultControls": {
+				"padding": true
+			}
 		}
 	},
 	"attributes": {
@@ -24,23 +27,31 @@
 			"type": "object",
 			"default": {
 				"color": {
-					"background": "#dd0000",
+					"background": "#ff0000",
 					"text": "#000",
 					"link": "#0ff"
-				},
-				"spacing": {
-					"padding": {
-						"top": "0px",
-						"right": "0px",
-						"bottom": "0px",
-						"left": "0px"
-					}
 				}
 			}
 		},
 		"showTopCurvy": {
 			"type": "boolean",
 			"default": true
+		},
+		"topHorizontalFlip": {
+			"type": "boolean",
+			"default": false
+		},
+		"topVerticalFlip": {
+			"type": "boolean",
+			"default": false
+		},
+		"curvyWidth": {
+			"type": "number",
+			"default": 100
+		},
+		"curvyHeight": {
+			"type": "number",
+			"default": 100
 		}
 	},
 	"textdomain": "bockylicious",
