@@ -67,7 +67,7 @@
 		},
 		"bottomVerticalFlip": {
 			"type": "boolean",
-			"default": false
+			"default": true
 		},
 		"bottomCurvyWidth": {
 			"type": "number",

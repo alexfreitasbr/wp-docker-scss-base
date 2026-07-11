@@ -44,10 +44,6 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<section
 				{...blockProps}
-				style={{
-					position: "unset",
-    				height: `${attributes.topCurvyHeight + attributes.bottomCurvyHeight}px`,
-				}}
 			>
 				{attributes.showTopCurvy && (
 					<Curvy
@@ -59,7 +55,11 @@ export default function Edit({ attributes, setAttributes }) {
 						curvyColor={attributes.topCurvyColor}
 					/>
 				)}
-				<InnerBlocks/>
+				<div style={{ display: "flex", justifyContent: "center", width: "100%", backgroundColor: attributes.style.color.background}}>
+					<div style={{ width: "100%", maxWidth: "1200px", margin: "0 12px"}}>
+						<InnerBlocks />
+					</div>
+				</div>
 				{attributes.showBottomCurvy && (
 					<Curvy
 						top={attributes.topCurvyHeight}
